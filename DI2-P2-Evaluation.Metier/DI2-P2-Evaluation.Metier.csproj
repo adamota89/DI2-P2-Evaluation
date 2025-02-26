@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DI2-P2-Evaluation.Domain\DI2-P2-Evaluation.Domain.csproj" />
     <ProjectReference Include="..\DI2-P2-Evaluation.Infrastructure\DI2-P2-Evaluation.Infrastructure.csproj" />
   </ItemGroup>
