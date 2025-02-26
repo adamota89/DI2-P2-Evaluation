@@ -1,6 +1,7 @@
 using DI2_P2_Evaluation.Domain.Interfaces;
 using DI2_P2_Evaluation.Infrastructure;
 using DI2_P2_Evaluation.Infrastructure.Repositories;
+using DI2_P2_Evaluation.Middleware;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,6 +33,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ApiKeyMiddleware>();
 
 app.UseHttpsRedirection();
 
