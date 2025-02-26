@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>DI2_P2_Evaluation.Metier</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DI2-P2-Evaluation.Domain\DI2-P2-Evaluation.Domain.csproj" />
+    <ProjectReference Include="..\DI2-P2-Evaluation.Infrastructure\DI2-P2-Evaluation.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
