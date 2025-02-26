@@ -10,6 +10,8 @@ namespace DI2_P2_Evaluation.Domain.Interfaces
     public interface IPasswordRepository
     {
         Task<IEnumerable<Password>> GetAllPasswords();
+        Task<Password> CreatePassword(Password password);
+        Task DeletePassword(int id);
 
     }
 }

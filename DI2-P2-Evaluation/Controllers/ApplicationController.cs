@@ -1,6 +1,7 @@
 ﻿using DI2_P2_Evaluation.Domain.Entities;
 using DI2_P2_Evaluation.Domain.Interfaces;
 using DI2_P2_Evaluation.Infrastructure;
+using DI2_P2_Evaluation.Metier.DTOs;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
@@ -28,6 +29,13 @@ namespace DI2_P2_Evaluation.Controllers
             return Ok(applicationsDto);
         }
 
-    }
 
+        [HttpPost("applications")]
+        public async Task<ActionResult<Application>> CreateApplication(ApplicationDTO applicationDto)
+        {
+            var addedApplication = await _applicationService.CreateApplication(applicationDto);
+
+            return Ok(addedApplication);
+        }
+    }
 }

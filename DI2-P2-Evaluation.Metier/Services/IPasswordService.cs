@@ -10,6 +10,8 @@ namespace DI2_P2_Evaluation.Domain.Interfaces
     public interface IPasswordService
     {
         Task<IEnumerable<PasswordDTO>> GetAllPasswords();
-
+        Task<PasswordDTO> CreatePassword(PasswordDTO passwordDto);
+        Task<bool> DeletePassword(int id);
+        string EncryptPassword(string password, int encryptionType);
     }
 }

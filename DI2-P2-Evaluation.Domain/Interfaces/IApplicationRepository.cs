@@ -10,6 +10,6 @@ namespace DI2_P2_Evaluation.Domain.Interfaces
     public interface IApplicationRepository
     {
         Task<IEnumerable<Application>> GetAllApplications();
-
+        Task<Application> CreateApplication(Application application);
     }
 }

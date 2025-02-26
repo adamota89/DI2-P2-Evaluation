@@ -10,6 +10,6 @@ namespace DI2_P2_Evaluation.Domain.Interfaces
     public interface IApplicationService
     {
         Task<IEnumerable<ApplicationDTO>> GetAllApplications();
-
+        Task<ApplicationDTO> CreateApplication(ApplicationDTO applicationDto);
     }
 }

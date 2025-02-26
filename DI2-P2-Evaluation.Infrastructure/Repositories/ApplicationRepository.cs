@@ -18,6 +18,14 @@ namespace DI2_P2_Evaluation.Infrastructure.Repositories
             _context = context;
         }
 
+        public async Task<Application> CreateApplication(Application application)
+        {
+            _context.Applications.Add(application);
+            await _context.SaveChangesAsync();
+
+            return application;
+        }
+
         public async Task<IEnumerable<Application>> GetAllApplications()
         {
             return await _context.Applications.ToListAsync();
