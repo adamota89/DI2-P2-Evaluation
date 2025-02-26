@@ -1,0 +1,6 @@
+@DI2_P2_Evaluation_HostAddress = http://localhost:5028
+
+GET {{DI2_P2_Evaluation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
