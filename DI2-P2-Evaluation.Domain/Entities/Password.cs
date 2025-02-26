@@ -12,13 +12,10 @@ namespace DI2_P2_Evaluation.Domain.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id {  get; set; }
+        public int Id { get; set; }
+        public string EncryptedValue { get; set; } = string.Empty; // Chiffré en AES ou RSA
 
-        /// <summary>
-        /// Password
-        /// </summary>
-        public string password { get; set; }
-
+        public ICollection<ApplicationPassword> ApplicationPasswords { get; set; } = new List<ApplicationPassword>();
 
     }
 }

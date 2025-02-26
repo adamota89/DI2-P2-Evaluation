@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DI2_P2_Evaluation.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,26 @@ namespace DI2_P2_Evaluation.Infrastructure
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
+        }
+
+        public DbSet<Application> Applications { get; set; }
+        public DbSet<Password> Passwords { get; set; }
+        public DbSet<ApplicationPassword> ApplicationPasswords { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ApplicationPassword>()
+                .HasKey(ap => new { ap.ApplicationId, ap.PasswordId });
+
+            modelBuilder.Entity<ApplicationPassword>()
+                .HasOne(ap => ap.Application)
+                .WithMany(a => a.ApplicationPasswords)
+                .HasForeignKey(ap => ap.ApplicationId);
+
+            modelBuilder.Entity<ApplicationPassword>()
+                .HasOne(ap => ap.Password)
+                .WithMany(p => p.ApplicationPasswords)
+                .HasForeignKey(ap => ap.PasswordId);
         }
     }
 }

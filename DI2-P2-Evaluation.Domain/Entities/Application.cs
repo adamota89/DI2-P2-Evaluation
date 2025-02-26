@@ -12,16 +12,11 @@ namespace DI2_P2_Evaluation.Domain.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Application's name
-        /// </summary>
-        public string name { get; set; }
+        public ApplicationType Type { get; set; }
 
-        /// <summary>
-        /// application's type (general public / professional)
-        /// </summary>
-        public string type_application { get; set; }
+        public ICollection<ApplicationPassword> ApplicationPasswords { get; set; } = new List<ApplicationPassword>();
     }
 }
