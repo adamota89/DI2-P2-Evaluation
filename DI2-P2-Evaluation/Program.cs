@@ -11,6 +11,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecific",
+        policy => policy.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+});
+
+
+
 // Connection to the SQLServer database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -34,7 +44,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseMiddleware<ApiKeyMiddleware>();
+// Mon middleWare fonctionne avec postman mais pas avec mon front
+//app.UseMiddleware<ApiKeyMiddleware>();
+
+app.UseCors("AllowSpecific");
 
 app.UseHttpsRedirection();
 
